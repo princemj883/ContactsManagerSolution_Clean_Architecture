@@ -1,9 +1,12 @@
+using ContactsManager.Core.Domain.IdentityEntities;
 using ContactsManager.Core.Domain.RepositoryContracts;
 using ContactsManager.Core.Helpers;
 using ContactsManager.Core.ServiceContracts;
 using ContactsManager.Core.Services;
 using ContactsManager.Infrastructure.DbContext;
 using CRUD.Middleware;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 
@@ -25,6 +28,12 @@ else
         options.UseNpgsql(
             builder.Configuration.GetConnectionString("DefaultConnection")));
 }
+//Enable Identity in this Project 
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders()
+    .AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, Guid>>()
+    .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

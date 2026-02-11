@@ -10,12 +10,10 @@
       <PackageReference Include="ClosedXML" Version="0.105.0" />
       <PackageReference Include="CsvHelper" Version="33.1.0" />
       <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.9" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
       <PackageReference Include="QuestPDF" Version="2025.12.4" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Domain\IdentityEntities\" />
     </ItemGroup>
 
 </Project>
