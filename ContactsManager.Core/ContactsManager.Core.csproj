@@ -14,4 +14,8 @@
       <PackageReference Include="QuestPDF" Version="2025.12.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Domain\IdentityEntities\" />
+    </ItemGroup>
+
 </Project>

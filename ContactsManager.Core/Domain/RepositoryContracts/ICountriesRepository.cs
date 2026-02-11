@@ -1,6 +1,6 @@
-﻿using Entities;
+﻿using ContactsManager.Core.Domain.Entities;
 
-namespace RepositoryContracts;
+namespace ContactsManager.Core.Domain.RepositoryContracts;
 
 /// <summary>
 /// Represents data access layer for managing Country entities

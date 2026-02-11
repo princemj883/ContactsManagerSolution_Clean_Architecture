@@ -1,10 +1,8 @@
+using ContactsManager.Core.Domain.RepositoryContracts;
+using ContactsManager.Core.Helpers;
 using ContactsManager.Core.ServiceContracts;
 using ContactsManager.Core.Services;
 using ContactsManager.Infrastructure.DbContext;
-using RepositoryContracts;
-using ServiceContracts;
-using Services;
-using Services.PDF;
 using CRUD.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Repositories;

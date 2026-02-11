@@ -1,4 +1,4 @@
-namespace ServiceContracts.DTO;
+namespace ContactsManager.Core.DTO;
 
 public class ExcelUploadResponse
 {

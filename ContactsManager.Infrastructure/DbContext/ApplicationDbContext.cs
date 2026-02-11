@@ -1,4 +1,4 @@
-using Entities;
+using ContactsManager.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactsManager.Infrastructure.DbContext;

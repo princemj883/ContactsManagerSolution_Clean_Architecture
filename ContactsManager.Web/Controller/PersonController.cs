@@ -1,10 +1,10 @@
+using ContactsManager.Core.DTO;
+using ContactsManager.Core.Enums;
+using ContactsManager.Core.ServiceContracts;
 using CRUD.Filters.ActionFilters;
 using Microsoft.AspNetCore.Mvc;
-using ServiceContracts;
-using ServiceContracts.DTO;
-using ServiceContracts.Enums;
 
-namespace CRUD.Controller;
+namespace ContactsManager.Web.Controller;
 
 [ApiController]
 [Route("api/[controller]")]

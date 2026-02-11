@@ -1,5 +1,5 @@
+using ContactsManager.Core.DTO;
 using Microsoft.AspNetCore.Mvc.Filters;
-using ServiceContracts.DTO;
 
 namespace CRUD.Filters.ActionFilters;
 

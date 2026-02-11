@@ -1,6 +1,6 @@
+using ContactsManager.Core.DTO;
 using ContactsManager.Core.ServiceContracts;
 using Microsoft.AspNetCore.Mvc;
-using ServiceContracts.DTO;
 
 namespace ContactsManager.Web.Controller;
 

@@ -1,16 +1,16 @@
 using System.Globalization;
 using ClosedXML.Excel;
+using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Domain.RepositoryContracts;
+using ContactsManager.Core.DTO;
+using ContactsManager.Core.Enums;
+using ContactsManager.Core.Exceptions;
+using ContactsManager.Core.Helpers;
+using ContactsManager.Core.ServiceContracts;
 using CsvHelper;
 using CsvHelper.Configuration;
-using Entities;
-using Exceptions;
-using RepositoryContracts;
-using ServiceContracts;
-using ServiceContracts.DTO;
-using ServiceContracts.Enums;
-using Services.Helpers;
 
-namespace Services;
+namespace ContactsManager.Core.Services;
 
 public class PersonService(IPersonsRepository personsRepository) : IPersonService
 {

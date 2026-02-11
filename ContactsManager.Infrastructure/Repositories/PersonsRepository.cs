@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
+using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Domain.RepositoryContracts;
 using ContactsManager.Infrastructure.DbContext;
-using Entities;
 using Microsoft.EntityFrameworkCore;
-using RepositoryContracts;
 
 namespace Repositories;
 

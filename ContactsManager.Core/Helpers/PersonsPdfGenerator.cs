@@ -1,9 +1,8 @@
-using ContactsManager.Core.Helpers;
+using ContactsManager.Core.DTO;
+using ContactsManager.Core.ServiceContracts;
 using QuestPDF.Fluent;
-using ServiceContracts;
-using ServiceContracts.DTO;
 
-namespace Services.PDF;
+namespace ContactsManager.Core.Helpers;
 
 public class PersonsPdfGenerator : IPersonsPdfGenerator
 {

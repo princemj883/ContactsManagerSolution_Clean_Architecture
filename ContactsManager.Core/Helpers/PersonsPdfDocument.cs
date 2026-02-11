@@ -1,7 +1,7 @@
+using ContactsManager.Core.DTO;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using ServiceContracts.DTO;
 
 namespace ContactsManager.Core.Helpers
 
