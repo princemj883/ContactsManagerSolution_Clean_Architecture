@@ -3,7 +3,12 @@
 ############################
 bin/
 obj/
-
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+CRUD.sln.DotSettings.user
 ############################
 # User-specific files
 ############################
