@@ -32,3 +32,4 @@ C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\Cont
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Infrastructure\obj\Debug\net9.0\refint\ContactsManager.Infrastructure.dll
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Infrastructure\obj\Debug\net9.0\ContactsManager.Infrastructure.pdb
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Infrastructure\obj\Debug\net9.0\ref\ContactsManager.Infrastructure.dll
+C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Infrastructure\obj\Debug\net9.0\ContactsManager.Infrastructure.sourcelink.json

@@ -29,3 +29,4 @@ C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\Cont
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Core\obj\Debug\net9.0\refint\ContactsManager.Core.dll
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Core\obj\Debug\net9.0\ContactsManager.Core.pdb
 C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Core\obj\Debug\net9.0\ref\ContactsManager.Core.dll
+C:\Users\manoj.jaiswal\LocalBin_manoj.jaiswal\Codes\ContactsManagerSolution\ContactsManager.Core\obj\Debug\net9.0\ContactsManager.Core.sourcelink.json
