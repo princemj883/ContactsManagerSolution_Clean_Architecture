@@ -1,20 +1,15 @@
 using ContactsManager.Core.Domain.IdentityEntities;
 using ContactsManager.Core.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.Web.Controller;
 
 [Route("[controller]/[action]")]
-public class AccountController : Microsoft.AspNetCore.Mvc.Controller
+[AllowAnonymous]
+public class AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) : Microsoft.AspNetCore.Mvc.Controller
 {
-    private readonly UserManager<ApplicationUser> _userManager;
-
-    public AccountController(UserManager<ApplicationUser> userManager)
-    {
-        _userManager = userManager;
-    }
-    
     [HttpPost]
     public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
     {
@@ -28,9 +23,12 @@ public class AccountController : Microsoft.AspNetCore.Mvc.Controller
             PhoneNumber =  registerDTO.Phone,
             PersonName = registerDTO.PersonName
         };
-        IdentityResult result = await _userManager.CreateAsync(user);
-        if(result.Succeeded) 
+        IdentityResult result = await userManager.CreateAsync(user, registerDTO.Password);
+        if (result.Succeeded)
+        {
+            await signInManager.SignInAsync(user, isPersistent: false);
             return Created();
+        }
 
         foreach (IdentityError error in result.Errors)
         {
@@ -38,5 +36,25 @@ public class AccountController : Microsoft.AspNetCore.Mvc.Controller
         }
 
         return BadRequest(result.Errors.Select(e => e.Description));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+
+        var result = await signInManager.PasswordSignInAsync(loginDTO.Email, loginDTO.Password, isPersistent: false,
+            lockoutOnFailure: false);
+        if(result.Succeeded)
+            return Ok("Login successful");
+        return Unauthorized("Invalid email or password");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        await signInManager.SignOutAsync();
+        return Ok("Logged out successfully");
     }
 }
