@@ -17,9 +17,10 @@ public class RegisterDTO
     
     [Required(ErrorMessage = "Password cannot be blank")]
     [DataType(DataType.Password)]
-    public string passsword { get; set; }
+    public string Password { get; set; }
     
     [Required(ErrorMessage = "ConfirmPassword cannot be blank")]
     [DataType(DataType.Password)]
-    public string confirmPassword { get; set; }
+    [Compare("Password", ErrorMessage = "Passwords do not match")]
+    public string ConfirmPassword { get; set; }
 }

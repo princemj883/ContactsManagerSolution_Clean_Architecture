@@ -9,6 +9,8 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 CRUD.sln.DotSettings.user
+.idea/
+*.dll
 ############################
 # User-specific files
 ############################
