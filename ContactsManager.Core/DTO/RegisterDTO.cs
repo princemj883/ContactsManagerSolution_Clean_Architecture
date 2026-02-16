@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ContactsManager.Core.Enums;
 
 namespace ContactsManager.Core.DTO;
 
@@ -23,4 +24,6 @@ public class RegisterDTO
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "Passwords do not match")]
     public string ConfirmPassword { get; set; }
+
+    public UserTypeOptions UserType { get; set; } = UserTypeOptions.User;
 }
