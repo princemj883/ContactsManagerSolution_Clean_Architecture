@@ -13,11 +13,12 @@ using Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
 builder.Services.AddScoped<IPersonsRepository, PersonsRepository>();
 builder.Services.AddScoped<ICountriesService, CountriesService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 if (builder.Environment.IsEnvironment("Test"))
 {
     builder.Services.AddDbContext<ApplicationDbContext>(options =>

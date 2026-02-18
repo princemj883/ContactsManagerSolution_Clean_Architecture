@@ -1,6 +1,8 @@
 using ContactsManager.Core.Domain.IdentityEntities;
 using ContactsManager.Core.DTO;
 using ContactsManager.Core.Enums;
+using ContactsManager.Core.ServiceContracts;
+using ContactsManager.Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +12,7 @@ namespace ContactsManager.Web.Controller;
 [Route("[controller]/[action]")]
 [AllowAnonymous]
 public class AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-                                RoleManager<ApplicationRole> roleManager) : Microsoft.AspNetCore.Mvc.Controller
+                                RoleManager<ApplicationRole> roleManager, IJwtService jwtService) : Microsoft.AspNetCore.Mvc.Controller
 {
     [HttpPost]
     public async Task<IActionResult> Register([FromBody] RegisterDTO registerDTO)
@@ -28,28 +30,29 @@ public class AccountController(UserManager<ApplicationUser> userManager, SignInM
         IdentityResult result = await userManager.CreateAsync(user, registerDTO.Password);
         if (result.Succeeded)
         {
-            if (registerDTO.UserType == UserTypeOptions.Admin)
-            {
-                //Create Admin Role
-                if (await roleManager.FindByNameAsync(UserTypeOptions.Admin.ToString()) is null)
-                {
-                    ApplicationRole applicationRole = new ApplicationRole()
-                    {
-                        Name = UserTypeOptions.Admin.ToString() 
-                    };
-                    await roleManager.CreateAsync(applicationRole);
-                }
-                // Add new user to Admin Role
-                await userManager.AddToRoleAsync(user, UserTypeOptions.Admin.ToString());
-            }   
-            
-            else
-            {
-                // Add new user to User Role
-                await userManager.AddToRoleAsync(user, UserTypeOptions.User.ToString());
-            }
+            // if (registerDTO.UserType == UserTypeOptions.Admin)
+            // {
+            //     //Create Admin Role
+            //     if (await roleManager.FindByNameAsync(UserTypeOptions.Admin.ToString()) is null)
+            //     {
+            //         ApplicationRole applicationRole = new ApplicationRole()
+            //         {
+            //             Name = UserTypeOptions.Admin.ToString() 
+            //         };
+            //         await roleManager.CreateAsync(applicationRole);
+            //     }
+            //     // Add new user to Admin Role
+            //     await userManager.AddToRoleAsync(user, UserTypeOptions.Admin.ToString());
+            // }   
+            //
+            // else
+            // {
+            //     // Add new user to User Role
+            //     await userManager.AddToRoleAsync(user, UserTypeOptions.User.ToString());
+            // }
             await signInManager.SignInAsync(user, isPersistent: false);
-            return Created();
+            var authenticationResponse = jwtService.CreateJwtToken(user);
+            return Ok(authenticationResponse);
         }
 
         foreach (IdentityError error in result.Errors)
